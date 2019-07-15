@@ -1,0 +1,43 @@
+<div class="hs">
+	<h1>Thông tin học sinh</h1>
+	Tên học sinh: <input 
+				(keyup)="newstuden.name = $event.target.value"
+				type="text" [value]="newstuden.name">
+	<br>
+	Tuổi học sinh <input 
+				(keyup)="newstuden.age = $event.target.value"
+				type="text" [value]="newstuden.age">
+	<br>
+	Ảnh học sinh <input 
+				(keyup)="newstuden.avatar = $event.target.value"
+				type="text" [value]="newstuden.avatar">
+	<br>
+	<button type="button" (click)="save()">Lưu lại</button>
+	<button type="button" (click)="clear()">Hủy</button>
+</div>
+
+<ul>
+	<li 
+		*ngFor="let studen of students"
+		[ngClass]=""	
+	>.
+		<p>
+			Họ và tên:{{studen.name}}
+	
+			<br>
+			Tuổi:{{studen.age}}
+			
+		</p>
+		<img [src]="studen.avatar" width="70">
+		<br>
+		<button 
+			(click)="update(studen)"
+			type="button">Chỉnh sửa</button>
+			<button 
+			(click)="remove(studen.id)"
+			type="button">Xóa</button>
+	</li>
+</ul>
+
+
+
